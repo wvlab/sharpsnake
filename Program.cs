@@ -324,6 +324,10 @@ public static class Program
         Game game = new Game();
         while (!Raylib.WindowShouldClose())
         {
+            if (Raylib.IsWindowResized() || Raylib.IsWindowMaximized())
+            {
+                Raylib.SetWindowSize(Game.ScreenWidth, Game.ScreenHeight);
+            }
             game.Update();
             game.Draw();
         }
